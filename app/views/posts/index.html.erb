@@ -1,0 +1,16 @@
+<h1>Posts Index Page</h1>
+All posts will be visible here.
+
+<% @posts.each do |post| %>
+<h2><%= post.title %></h2>
+<p>Posted:<%= post.created_at.strftime("%b %e, %l:%M %p") %></p>
+<p>By: <%= post.userid %></p>
+<p><%= post.content %></p>
+
+<hr>
+<% end %>
+
+<button><a href = "/posts/new">Create New Post</a></button>
+
+<%= button_to "sign out", "/users/sign_out", method: :delete %>
+<%= button_to "sign in", "/users/sign_in", method: :get %>
